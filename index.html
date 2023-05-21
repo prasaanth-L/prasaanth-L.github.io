@@ -1,15 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
+background-image:url('linux.gif');
+    background-size:100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
+    display: table;
 
+        }
+	.navbar {
+		overflow: hidden;
+		background-color: #333;
+	}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 	img.center{
 		border-radius: 50%;
 		margin-left: auto;
@@ -30,6 +95,14 @@
 	h1 {
 		font-size: 50px;
 		color: lightyellow;
+	}
+
+	h2 {
+		font-size: 35px;
+		text-align: center;
+		color: lightyellow;
+		color: #333;
+
 	}
 
 	h3 {
@@ -65,8 +138,13 @@
         footer {
             background-color: #333;
             color: #fff;
-            padding: 20px;
+	    display: table-row;
+	    height: 0;
+            padding: 200%;
             text-align: center;
+	    clear: both;
+	    position: relative;
+	    margin-top: -200px;
         }
         
         footer a {
@@ -80,28 +158,6 @@
 		margin: 20px 10px;
 	}
 
-	.Resume a {
-		display: inline-block;
-		width: 80px;
-		height: 50px;
-		border-radius: 50%;
-		background-color: #333;
-		color: #fff;
-		font-size: 12px;
-		line-height: 50px;
-		text-align: center;
-		margin: 0 10px;
-		text-decoration: none;
-	}
-
-
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        
         .social-links a {
             display: inline-block;
             width: 50px;
@@ -112,40 +168,117 @@
             font-size: 24px;
             line-height: 50px;
             text-align: center;
-            margin: 0 10px;
             text-decoration: none;
         }
-	.About-me{
-		background-color: #333;
-		display: inline-block;
-		border-radius: 10px;
-		color: #fff;
-		font-size: 15px;
+	
+	.split {
+		height: 150px;
+		width: 50%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		overflow-x: hidden;
+		padding-top: 20px;
+	}
+	.left {
+		left: 0;
+		background-color: #111;
+	}
+	.right {
+		right: 0;
+		background-color: red;
+	}
+	.centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		text-align: center;
-		margin: 0 10px;
+	}
+
+	.exp{
+		width:100%;
+            	height:25%;
+            	padding-top:20px;
+		background: #f2f2f5;
+		text-align: center;
+		background-color:white;
+		border-bottom: 1px solid #dcd9d9;
+
+	}
+
+	.left-div{
+		float:left;
+            width:20%;
+            height:270px;
+	    background-color:white;
+	}
+	.cent-div{
+		float:left;
+            width:20%;
+            height:270px;
+	    background-color:white;
+	}
+	.right-div{
+		float:right;
+            width:60%;
+            height:80%;
+	    background-color:white;
 	}
 
     </style>
 </head>
-<body> 
+<link rel="icon" type="icon.png" href="icon.png">
+<body>
+	<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="suma.html">About me</a>
+  <div class="dropdown">
+    <button class="dropbtn">Projects
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Hardware</a>
+      <a href="#">Embedded C-firmware</a>
+      <a href="#">Linux-firmware</a>
+    </div>
+  </div>
+</div>
     <header>
 	    <img src="profile.jpg"  class="center" > 
         <h1>Prasaanth L</h1>
 	<h3>Embedded Engineer</h3>
+	<button onclick="document.location='Resume.pdf'">Download Resume</button>
     </header>
-    <div class="Resume"><a href="Resume.pdf"><b>RESUME</b></a></div>
     <nav class="social-links">
-            <a href="https://www.linkedin.com/in/prasaanth-l-213248208?trk=public_profile_browsemap&originalSubdomain=in">L</a>
-            <a href="https://github.com/prasaant-vk">G</a>
+            <a href="https://www.linkedin.com/in/prasaanth-l-213248208?trk=public_profile_browsemap&originalSubdomain=in" target="_blank">L</a>
+            <a href="https://github.com/prasaant-vk" target="_blank">G</a>
     </nav>
     
     <main>
         <!-- Add your portfolio content here -->
-        <h2>About Me</h2>
-	<div class = "About-me">
-        <p>I am a young and energetic embedded software engineer with a passion for Linux development. Currently, I am actively involved in both hardware design and software development within the embedded field. I thrive on challenging projects that require a comprehensive understanding of both hardware and software components. My goal is to continuously enhance my skills and knowledge in Linux systems and contribute to the development of innovative solutions in the embedded industry. With a strong foundation in embedded systems, I am adept at designing efficient and reliable software that maximizes hardware capabilities. I am driven by curiosity and enjoy exploring emerging technologies, always seeking opportunities to expand my expertise. I am eager to collaborate with like-minded professionals and contribute to cutting-edge projects that push the boundaries of embedded software development.</p>
+	<h2>Experience</h2>
+	<div class= "exp">
+	<div class = "left-div">
+		<B>2021-present</B>
+	</div> 
+
+	<div class = "cent-div">
+		<B>HACKLAB SOLUTIONS</B>
 	</div>
-            </main>
+	<div class = "right-div">
+		<B><li>Designing new products: You will be responsible for designing and developing new embedded systems or products. This involves understanding the requirements, identifying the components and technologies needed, and designing the overall system architecture.</li>
+
+		<li>Maintaining products: Once the products are developed and deployed, you will be responsible for their maintenance. This includes troubleshooting issues, debugging problems, and ensuring that the products continue to function properly over time. You may need to analyze field data, customer feedback, and performance metrics to identify areas of improvement.</li>
+
+		<li>Creating firmware: As an embedded engineer, you will be involved in writing firmware for the embedded systems. Firmware is the software that is specifically designed to control the hardware components and enable them to perform specific tasks. You will need to write efficient, reliable, and scalable firmware code that meets the product requirements.</li>
+
+		<li>Testing firmware: After creating the firmware, you will be responsible for testing it to ensure that it functions correctly. This involves developing test plans, writing test cases, and performing various types of testing such as unit testing, integration testing, and system testing. You may use tools, simulators, and hardware interfaces to conduct the testing process.</li>
+
+		<li>Improvising the firmware: Once the products are in use, you will need to continuously improve the firmware based on feedback and evolving requirements. This could involve enhancing features, optimizing performance, fixing bugs, or addressing security vulnerabilities. It requires staying up to date with the latest technologies, industry standards, and best practices to ensure the firmware remains efficient and reliable.</li></B>	
+	</div>
+	</div>
+    </main>
     
     <footer>
         <p>&copy; 2023 Your Name. All rights reserved. | <a href="mailto:your-email@example.com">Contact</a></p>
