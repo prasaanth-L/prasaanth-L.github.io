@@ -3,36 +3,59 @@
 <head>
     <title>Your Portfolio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Hub+Caps&display=swap');
-        
         body {
-            font-family: 'Hub Caps', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
+
+	img.center{
+		border-radius: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		width: 15%;
+	}
         
         header {
             background-color: #333;
             color: #fff;
-            padding: 20px;
+            padding: 10px;
+	    background-image: url('bck.png');
+	    background-repeat: no-repeat;
+	    background-size: cover;
             text-align: center;
-        }
-        
+	}
+
+	h1 {
+		font-size: 50px;
+		color: lightyellow;
+	}
+
+	h3 {
+		color: lightyellow;
+	}
+
         nav {
             background-color: #f4f4f4;
             padding: 10px;
             text-align: center;
+	    color: lightyellow;
+
         }
         
         nav a {
             margin: 0 10px;
             text-decoration: none;
             color: #333;
+	    color: lightyellow;
+
         }
         
         nav a:hover {
             text-decoration: underline;
+	    color: lightyellow;
+
         }
         
         main {
@@ -50,6 +73,28 @@
             color: #fff;
             text-decoration: none;
         }
+
+	.Resume {
+		display: flex;
+		justify-content: center;
+		margin: 20px 10px;
+	}
+
+	.Resume a {
+		display: inline-block;
+		width: 80px;
+		height: 50px;
+		border-radius: 50%;
+		background-color: #333;
+		color: #fff;
+		font-size: 12px;
+		line-height: 50px;
+		text-align: center;
+		margin: 0 10px;
+		text-decoration: none;
+	}
+
+
         
         .social-links {
             display: flex;
@@ -70,32 +115,37 @@
             margin: 0 10px;
             text-decoration: none;
         }
+	.About-me{
+		background-color: #333;
+		display: inline-block;
+		border-radius: 10px;
+		color: #fff;
+		font-size: 15px;
+		text-align: center;
+		margin: 0 10px;
+	}
+
     </style>
 </head>
-<body>
+<body> 
     <header>
-        <h1>Your Name</h1>
+	    <img src="profile.jpg"  class="center" > 
+        <h1>Prasaanth L</h1>
+	<h3>Embedded Engineer</h3>
     </header>
-    
-    <nav>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/your-linkedin-url/">L</a>
-            <a href="https://github.com/your-github-username">G</a>
-        </div>
+    <div class="Resume"><a href="Resume.pdf"><b>RESUME</b></a></div>
+    <nav class="social-links">
+            <a href="https://www.linkedin.com/in/prasaanth-l-213248208?trk=public_profile_browsemap&originalSubdomain=in">L</a>
+            <a href="https://github.com/prasaant-vk">G</a>
     </nav>
     
     <main>
         <!-- Add your portfolio content here -->
         <h2>About Me</h2>
-        <p>Write a brief introduction about yourself.</p>
-        
-        <h2>Projects</h2>
-        <ul>
-            <li>Project 1</li>
-            <li>Project 2</li>
-            <li>Project 3</li>
-        </ul>
-    </main>
+	<div class = "About-me">
+        <p>I am a young and energetic embedded software engineer with a passion for Linux development. Currently, I am actively involved in both hardware design and software development within the embedded field. I thrive on challenging projects that require a comprehensive understanding of both hardware and software components. My goal is to continuously enhance my skills and knowledge in Linux systems and contribute to the development of innovative solutions in the embedded industry. With a strong foundation in embedded systems, I am adept at designing efficient and reliable software that maximizes hardware capabilities. I am driven by curiosity and enjoy exploring emerging technologies, always seeking opportunities to expand my expertise. I am eager to collaborate with like-minded professionals and contribute to cutting-edge projects that push the boundaries of embedded software development.</p>
+	</div>
+            </main>
     
     <footer>
         <p>&copy; 2023 Your Name. All rights reserved. | <a href="mailto:your-email@example.com">Contact</a></p>
