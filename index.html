@@ -8,15 +8,51 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-background-image:url('linux.gif');
-    background-size:100%;
-    background-repeat: repeat-y;
-    background-attachment: fixed;
-    height:100%;
-    width:100%;
-    display: table;
-
+	    overflow: scroll;
         }
+	#background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+	}
+
+.content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+      font-family: Arial, sans-serif;
+    }
+.content_1 {
+      display: flex;
+      position: relative;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: move 2s linear infinite;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(100vw, -100vh);
+        opacity: 0;
+      }
+    }
+
 	.navbar {
 		overflow: hidden;
 		background-color: #333;
@@ -150,6 +186,8 @@ background-image:url('linux.gif');
         footer a {
             color: #fff;
             text-decoration: none;
+	    width : 100%;
+	    height : 10%;
         }
 
 	.Resume {
@@ -196,35 +234,45 @@ background-image:url('linux.gif');
 		text-align: center;
 	}
 
-	.exp{
-		width:100%;
-            	height:25%;
-            	padding-top:20px;
-		background: #f2f2f5;
-		text-align: center;
-		background-color:white;
-		border-bottom: 1px solid #dcd9d9;
+		.scroll-container {
+		width: 300px;
+		height: 200px;
+		overflow: auto;
+	}
+	.column {
+		flex: 1;
+		padding: 20px;
+		display: flex;
+		align-items: center;
+		font-family: verdana, sans-serif;
 
 	}
+	.text-animation {
+		opacity: 0;
+		animation: animateText 2s forwards;
+	}
 
-	.left-div{
-		float:left;
-            width:20%;
-            height:270px;
-	    background-color:white;
-	}
-	.cent-div{
-		float:left;
-            width:20%;
-            height:270px;
-	    background-color:white;
-	}
-	.right-div{
-		float:right;
-            width:60%;
-            height:80%;
-	    background-color:white;
-	}
+.text-container {
+      display: inline-block;
+      font-size: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: animateText 2s linear forwards;
+    }
+
+    @keyframes animateText {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    .scroll-content {
+      height: 1000px;
+      padding: 10px;
+    }
 
     </style>
 </head>
@@ -254,29 +302,97 @@ background-image:url('linux.gif');
             <a href="https://www.linkedin.com/in/prasaanth-l-213248208?trk=public_profile_browsemap&originalSubdomain=in" target="_blank">L</a>
             <a href="https://github.com/prasaant-vk" target="_blank">G</a>
     </nav>
-    
-    <main>
+ <div id="background"></div>
+ 
+  <script>
+    // Set the number of particles
+    const particleCount = 100;
+
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+      createParticle();
+    }
+const textContainer = document.querySelector('.text-container');
+    const letterElements = textContainer.querySelectorAll('span');
+    const animationDelay = 2000; // Delay between each letter animation (in milliseconds)
+
+    letterElements.forEach((letter, index) => {
+      const delay = index * animationDelay;
+      setTimeout(() => {
+        letter.style.opacity = '1';
+      }, delay);
+    });
+
+
+function createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      document.getElementById('background').appendChild(particle);
+
+      // Set initial position and size
+      const initialX = Math.random() * window.innerWidth;
+      const initialY = Math.random() * window.innerHeight;
+      const size = Math.random() * 10 + 1;
+      particle.style.left = `${initialX}px`;
+      particle.style.top = `${initialY}px`;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+
+      // Set random animation duration
+      const duration = Math.random() * 2 + 1;
+      particle.style.animationDuration = `${duration}s`;
+
+      // Remove particle after animation ends
+      particle.addEventListener('animationend', () => {
+        particle.parentNode.removeChild(particle);
+      });
+    }
+  </script>
+
+  <div id="background"></div>
+ <div class="text-container">
+    <span>H</span>
+    <span>e</span>
+    <span>l</span>
+    <span>l</span>
+    <span>o</span>
+    <span>&nbsp;</span>
+    <span>m</span>
+    <span>i</span>
+    <span>n</span>
+    <span>a</span>
+    <span>-</span>
+    <span>s</span>
+    <span>a</span>
+    <span>n</span>
+    <span>!</span>
+    <span>!</span>
+
+
+  </div>
+  <main>
         <!-- Add your portfolio content here -->
 	<h2>Experience</h2>
-	<div class= "exp">
-	<div class = "left-div">
-		<B>2021-present</B>
+	<div class="content_1">
+	<div class = "column">
+		2021-present
 	</div> 
 
-	<div class = "cent-div">
-		<B>HACKLAB SOLUTIONS</B>
+	<div class = "column">
+		HACKLAB SOLUTIONS
 	</div>
-	<div class = "right-div">
-		<B><li>Designing new products: You will be responsible for designing and developing new embedded systems or products. This involves understanding the requirements, identifying the components and technologies needed, and designing the overall system architecture.</li>
+	<div class = "column">
+		<P>
+		Designing new products: <br>
 
-		<li>Maintaining products: Once the products are developed and deployed, you will be responsible for their maintenance. This includes troubleshooting issues, debugging problems, and ensuring that the products continue to function properly over time. You may need to analyze field data, customer feedback, and performance metrics to identify areas of improvement.</li>
+		Maintaining products.<br>
 
-		<li>Creating firmware: As an embedded engineer, you will be involved in writing firmware for the embedded systems. Firmware is the software that is specifically designed to control the hardware components and enable them to perform specific tasks. You will need to write efficient, reliable, and scalable firmware code that meets the product requirements.</li>
+		Creating firmware:<br>
 
-		<li>Testing firmware: After creating the firmware, you will be responsible for testing it to ensure that it functions correctly. This involves developing test plans, writing test cases, and performing various types of testing such as unit testing, integration testing, and system testing. You may use tools, simulators, and hardware interfaces to conduct the testing process.</li>
+		Testing firmware: <br>
 
-		<li>Improvising the firmware: Once the products are in use, you will need to continuously improve the firmware based on feedback and evolving requirements. This could involve enhancing features, optimizing performance, fixing bugs, or addressing security vulnerabilities. It requires staying up to date with the latest technologies, industry standards, and best practices to ensure the firmware remains efficient and reliable.</li></B>	
-	</div>
+		Improvising the firmware</li><br>
+		</p>
 	</div>
     </main>
     
